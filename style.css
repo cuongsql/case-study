@@ -1,5 +1,4 @@
 body {
-    width: 100%;
     text-align: center;
     display: block;
     margin: auto;
@@ -34,21 +33,17 @@ body {
         font-size: 14px;
     }
     .photo{
-        width:300px;
-        height:300px;
+        width:280px;
+        height: 200px;
         margin:0 0px 10px 0;
     }
     table{
         width: 100%;
     }
-    th{
-        width:50%;
-    }
     td{
         background-color:#fcfcfc;
         border-bottom:solid 2px #EEE;
         border-left:solid 2px #EEE;
-        padding-left:5px;
         width: 20%;
         height: 25%;
     }
@@ -69,23 +64,5 @@ body {
 	button:hover{
         background:#1EB353;
         box-shadow:inset 0 0 8px rgba(0,0,0,0.31),0 1px 0 rgba(255,255,255,0.8)
-    }
-    article{
-        font-size:14px;position:relative;
-        border-bottom:4px solid #F9F9F9;
-        background:#fff;
-        padding:8px;
-        clear:both;
-    }
-		article p{
-            display:block;
-            overflow:hidden
-        }
-	article a:hover{
-        color:#5468d8;
-        text-decoration:none
-    }
-	article:nth-child(even){
-        background-color:#fcfcfc;
     }
 	
