@@ -64,6 +64,8 @@ let AppBook = function () {
     }
     // xóa từng data
     this.deteleSessionStorage = function (i) {
+        let confirmAnswer = confirm("Do you want delete " + this.data[i][1] + " ?");
+        if(confirmAnswer)
         this.data.splice(i,1);
         sessionStorage.setItem('book', JSON.stringify(this.data));
         return this.displayData();
