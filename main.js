@@ -1,6 +1,6 @@
 let AppBook = function () {
     this.data = [];
-    //add giá trị
+    //add đối tượng
     this.addData = function () {
         name = document.getElementById('nameBook').value;
         img = document.getElementById('imgBook').value;
@@ -29,7 +29,7 @@ let AppBook = function () {
                 <p>Tác giả: <span style="color: blue">${this.data[i][2]}</span></p>
                 <p>Giá bán: <span style="color: red">${this.data[i][3]} đ</span></p>
                 <button type='button' onclick='alert("Bạn đã đặt sách ${this.data[i][1]} với giá ${this.data[i][3]} đ")'>Đặt sách</button>
-                <button type='button' style='background:red;color:#fff;' onclick='appbook.editData(${[i]})'>Edit</button>
+                <button type='button' style='background:red;color:#fff;' onclick='appbook.editForm(${[i]})'>Edit</button>
                 <button type="button" style='background:red;color:#fff;' onclick="appbook.deteleSessionStorage(${[i]})">Delete</button>
                 </td>`;
 
@@ -42,20 +42,21 @@ let AppBook = function () {
         document.getElementById("result").innerHTML = html;
     }
 
-    //sửa data
-    this.editData = function () {
+    //sửa đối tượng
+    this.editData = function (i) {
         name = document.getElementById("editNameBook").value;
         img = document.getElementById("editImgBook").value;
         author = document.getElementById("editAuthorBook").value;
         price = document.getElementById("editPriceBook").value;
-        this.data.splice(name,img,author,price);
+        this.data.splice(i,1,[img, name, author, price]);
         this.sessionStorage();
+        return this.displayData();
     }
-    //lưu data
+    // lưu data
     this.sessionStorage = function () {
         sessionStorage.setItem('book', JSON.stringify(this.data));
     }
-
+    // load data
     this.loadSessionStorage = function (){
         this.data = JSON.parse(sessionStorage.getItem('book'));
         if (!this.data) {
@@ -64,10 +65,11 @@ let AppBook = function () {
     }
     // xóa từng data
     this.deteleSessionStorage = function (i) {
+        console.log(this.data[i])
         let confirmAnswer = confirm(`Do you want delete ${this.data[i][1]} ?`);
         if(confirmAnswer)
         this.data.splice(i,1);
-        sessionStorage.setItem('book', JSON.stringify(this.data));
+        this.sessionStorage();
         return this.displayData();
     }
     // xóa hết data
@@ -75,11 +77,36 @@ let AppBook = function () {
         sessionStorage.clear();
         return this.displayData();
     }
-
+    // add book
+    this.updateForm = function() {
+        let insert = `<div class="menu">
+                <input id ="nameBook" type ="text" placeholder ="Tên sách:"> <br/>
+                <input id="imgBook" type="text" placeholder="https://"><br/>
+                <input id="authorBook" type="text" placeholder="Tác giả:"><br/>
+                <input id="priceBook" type="text" placeholder="Giá bán:"><br/>
+                <button type="button" onclick="appbook.addData()">Thêm</button>
+                <button type="button" onclick="appbook.clearSessionStorage()">Clear</button>
+                </div>`;
+        document.getElementById("insert").innerHTML = insert;
+    }
+    // sửa book
+    this.editForm = function(i) {
+        let repair = `<div class="menu">
+                <input id="editNameBook" type="text" value="${this.data[i][1]}"><br/>
+                <input id="editImgBook" type="text" value="${this.data[i][0]}"><br/>
+                <input id="editAuthorBook" type="text" value="${this.data[i][2]}"><br/>
+                <input id="editPriceBook" type="text" value="${this.data[i][3]}"><br/>
+                <button type="button" onclick="appbook.editData(${[i]})">Edit</button>
+                </div>`;
+        document.getElementById("repair").innerHTML = repair;
+        document.documentElement.scrollTop = 0;
+    }
 }
 
 let appbook = new AppBook();
-function main() {
-    appbook.loadSessionStorage();
-    appbook.displayData();
+function main(){
+appbook.loadSessionStorage();
+appbook.displayData();
+appbook.updateForm();
+appbook.editForm();
 }
