@@ -64,10 +64,9 @@ let AppBook = function () {
     }
     // xóa từng data
     this.deteleSessionStorage = function (i) {
-        this.loadSessionStorage();
-        console.log(this.data.splice(i,1))
         this.data.splice(i,1);
-        return this.data();
+        sessionStorage.setItem('book', JSON.stringify(this.data));
+        return this.displayData();
     }
     // xóa hết data
     this.clearSessionStorage = function () {
