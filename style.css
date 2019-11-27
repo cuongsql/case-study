@@ -10,12 +10,13 @@ body {
     color: #3D3A3A;
 }
     .title{
-	padding-bottom: 0.5em;
+border-bottom: #6FA2C1 solid 3px;
+padding-bottom: 0.5em;
     font-size: 25px;
     font-weight: 600;
     padding: 15px;
     cursor: default;
-    background: #6FA2C1;
+    background: #fff;
     }
     .menu{
         font-size:14px;position:relative;
