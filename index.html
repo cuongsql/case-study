@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Quản lý sách</title>
+</head>
+
+<body onload="main();">
+    <table align="center">
+        <th>
+            <div class="menu">
+                <input id="nameBook" type="text" placeholder="Tên sách:"><br />
+                <input id="imgBook" type="text" placeholder="https://"><br />
+                <input id="authorBook" type="text" placeholder="Tác giả:"><br />
+                <input id="priceBook" type="text" placeholder="Giá bán:"><br />
+                <button type="button" onclick="appbook.addData()">Thêm</button><button type="button"
+                    onclick="appbook.clearSessionStorage()">Clear</button>
+
+            </div>
+        </th>
+        <th>
+            <div class="menu">
+                <input id="editNameBook" type="text" placeholder=""><br />
+                <input id="editImgBook" type="text" placeholder=""><br />
+                <input id="editAuthorBook" type="text" placeholder=""><br />
+                <input id="editPriceBook" type="text" placeholder=""><br />
+                <button type="button" onclick="appbook.editData()">Edit</button>
+            </div>
+        </th>
+    </table>
+    <div class="title">Hệ thống quản lý sách</div>
+    <table id="result" align="center"></table>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+
+</html>
