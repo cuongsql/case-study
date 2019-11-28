@@ -2,7 +2,7 @@ let AppBook = function () {
     this.data = [];
     //add đoi tuong
     this.addData = function () {
-        alert(`Update xong !`);
+        alert(`Thành công !`);
         name = document.getElementById('nameBook').value;
         img = document.getElementById('imgBook').value;
         author = document.getElementById('authorBook').value;
