@@ -1,6 +1,6 @@
 let AppBook = function () {
     this.data = [];
-    //add đối tượng
+    //add đoi tuong
     this.addData = function () {
         name = document.getElementById('nameBook').value;
         img = document.getElementById('imgBook').value;
@@ -10,7 +10,7 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     };
-    // hiển thị data
+    // hien thi data
     this.displayData = function () {
         this.loadSessionStorage();
         let html = '';
@@ -42,7 +42,7 @@ let AppBook = function () {
         document.getElementById("result").innerHTML = html;
     }
 
-    //sửa đối tượng
+    //sua doi tuong
     this.editData = function (i) {
         name = document.getElementById("editNameBook").value;
         img = document.getElementById("editImgBook").value;
@@ -52,7 +52,7 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     }
-    // lưu data
+    // luu data
     this.sessionStorage = function () {
         sessionStorage.setItem('book', JSON.stringify(this.data));
     }
@@ -63,7 +63,7 @@ let AppBook = function () {
             this.data = [];
         }
     }
-    // xóa từng data
+    // xoa tung data
     this.deteleSessionStorage = function (i) {
         console.log(this.data[i])
         let confirmAnswer = confirm(`Do you want delete ${this.data[i][1]} ?`);
@@ -72,12 +72,12 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     }
-    // xóa hết data
+    // xaa het data
     this.clearSessionStorage = function () {
         sessionStorage.clear();
         return this.displayData();
     }
-    // add book
+    // them book
     this.updateForm = function() {
         let insert = `<div class="menu">
                 <input id ="nameBook" type ="text" placeholder ="Tên sách:"> <br/>
@@ -89,7 +89,7 @@ let AppBook = function () {
                 </div>`;
         document.getElementById("insert").innerHTML = insert;
     }
-    // sửa book
+    // sua book
     this.editForm = function(i) {
         let repair = `<div class="menu">
                 <input id="editNameBook" type="text" value="${this.data[i][1]}"><br/>
@@ -102,8 +102,8 @@ let AppBook = function () {
         document.documentElement.scrollTop = 0;
     }
 }
-
 let appbook = new AppBook();
+
 function main(){
 appbook.loadSessionStorage();
 appbook.displayData();
