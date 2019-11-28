@@ -10,18 +10,19 @@ body {
     color: #3D3A3A;
 }
     .title{
-border-bottom: #6FA2C1 solid 3px;
-padding-bottom: 0.5em;
+    border-bottom: #6FA2C1 solid 3px;
+	padding-bottom: 0.5em;
     font-size: 25px;
     font-weight: 600;
     padding: 15px;
     cursor: default;
-    background: #fff;
+    background: white;
     }
     .menu{
+        border-radius: 5px 5px 5px 5px;
+        background: #333333;
         font-size:14px;position:relative;
         border-bottom:4px solid #F9F9F9;
-        background: #333333;
         padding:8px;
         clear:both;
     }
@@ -41,6 +42,8 @@ padding-bottom: 0.5em;
         width: 100%;
     }
     td{
+        border-radius: 0 0 10px 0;
+        background:url(https://i.imgur.com/PtHDlIN.gif);
         background-color:#fcfcfc;
         border-bottom:solid 2px #EEE;
         border-left:solid 2px #EEE;
@@ -51,15 +54,17 @@ padding-bottom: 0.5em;
         width:30%;
         padding:5px;
         margin-bottom:2px;
+        border-radius: 5px 10px 4px 8px;
     }
 
 	button{
+        border-radius: 6px 10px 6px 6px;
         background:#2E8B57;
         padding:6px 10px;
         margin:3px 0 0 0;
         color:#fff;
         cursor:pointer;
-        transition:border .25s linear,color .25s linear,background-color .25s linear
+        transition:border .25s linear,color .25s linear,background-color .25s linear;
     }
 	button:hover{
         background:#1EB353;
