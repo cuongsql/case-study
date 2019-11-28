@@ -2,6 +2,7 @@ let AppBook = function () {
     this.data = [];
     //add đoi tuong
     this.addData = function () {
+        alert(`Update xong !`);
         name = document.getElementById('nameBook').value;
         img = document.getElementById('imgBook').value;
         author = document.getElementById('authorBook').value;
@@ -44,6 +45,7 @@ let AppBook = function () {
 
     //sua doi tuong
     this.editData = function (i) {
+        alert(`Done !!!`);
         name = document.getElementById("editNameBook").value;
         img = document.getElementById("editImgBook").value;
         author = document.getElementById("editAuthorBook").value;
