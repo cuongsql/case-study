@@ -1,6 +1,6 @@
 let AppBook = function () {
     this.data = [];
-    //add đoi tuong
+    //add doi tuong
     this.addData = function () {
         alert(`Thành công !`);
         name = document.getElementById('nameBook').value;
@@ -8,6 +8,17 @@ let AppBook = function () {
         author = document.getElementById('authorBook').value;
         price = document.getElementById('priceBook').value;
         this.data.unshift([img, name, author, price]);
+        this.sessionStorage();
+        return this.displayData();
+    };
+    //sua doi tuong
+    this.editData = function (i) {
+        alert(`Done !!!`);
+        name = document.getElementById("editNameBook").value;
+        img = document.getElementById("editImgBook").value;
+        author = document.getElementById("editAuthorBook").value;
+        price = document.getElementById("editPriceBook").value;
+        this.data.splice(i,1,[img, name, author, price]);
         this.sessionStorage();
         return this.displayData();
     };
@@ -41,30 +52,18 @@ let AppBook = function () {
             }
         }
         document.getElementById("result").innerHTML = html;
-    }
-
-    //sua doi tuong
-    this.editData = function (i) {
-        alert(`Done !!!`);
-        name = document.getElementById("editNameBook").value;
-        img = document.getElementById("editImgBook").value;
-        author = document.getElementById("editAuthorBook").value;
-        price = document.getElementById("editPriceBook").value;
-        this.data.splice(i,1,[img, name, author, price]);
-        this.sessionStorage();
-        return this.displayData();
-    }
+    };
     // luu data
     this.sessionStorage = function () {
         sessionStorage.setItem('book', JSON.stringify(this.data));
-    }
+    };
     // load data
     this.loadSessionStorage = function (){
         this.data = JSON.parse(sessionStorage.getItem('book'));
         if (!this.data) {
             this.data = [];
         }
-    }
+    };
     // xoa tung data
     this.deteleSessionStorage = function (i) {
         console.log(this.data[i])
@@ -73,12 +72,12 @@ let AppBook = function () {
         this.data.splice(i,1);
         this.sessionStorage();
         return this.displayData();
-    }
+    };
     // xaa het data
     this.clearSessionStorage = function () {
         sessionStorage.clear();
         return this.displayData();
-    }
+    };
     // them book
     this.updateForm = function() {
         let insert = `<div class="menu">
@@ -90,7 +89,7 @@ let AppBook = function () {
                 <button type="button" onclick="appbook.clearSessionStorage()">Clear</button>
                 </div>`;
         document.getElementById("insert").innerHTML = insert;
-    }
+    };
     // sua book
     this.editForm = function(i) {
         let repair = `<div class="menu">
@@ -102,8 +101,8 @@ let AppBook = function () {
                 </div>`;
         document.getElementById("repair").innerHTML = repair;
         document.documentElement.scrollTop = 0;
-    }
-}
+    };
+};
 let appbook = new AppBook();
 
 function main(){
@@ -111,4 +110,4 @@ appbook.loadSessionStorage();
 appbook.displayData();
 appbook.updateForm();
 appbook.editForm();
-}
+};
