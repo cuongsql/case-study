@@ -75,6 +75,8 @@ let AppBook = function () {
     };
     // xaa het data
     this.clearSessionStorage = function () {
+        let confirmAnswer = confirm(`Do you want delete ?`);
+        if(confirmAnswer)
         sessionStorage.clear();
         return this.displayData();
     };
