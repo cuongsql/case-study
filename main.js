@@ -11,6 +11,7 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     };
+    
     //sua doi tuong
     this.editData = function (i) {
         alert(`Done !!!`);
@@ -22,6 +23,7 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     };
+    
     // hien thi data
     this.displayData = function () {
         this.loadSessionStorage();
@@ -53,10 +55,12 @@ let AppBook = function () {
         }
         document.getElementById("result").innerHTML = html;
     };
+    
     // luu data
     this.sessionStorage = function () {
         sessionStorage.setItem('book', JSON.stringify(this.data));
     };
+    
     // load data
     this.loadSessionStorage = function (){
         this.data = JSON.parse(sessionStorage.getItem('book'));
@@ -64,6 +68,7 @@ let AppBook = function () {
             this.data = [];
         }
     };
+    
     // xoa tung data
     this.deteleSessionStorage = function (i) {
         console.log(this.data[i])
@@ -73,6 +78,7 @@ let AppBook = function () {
         this.sessionStorage();
         return this.displayData();
     };
+    
     // xaa het data
     this.clearSessionStorage = function () {
         let confirmAnswer = confirm(`Do you want delete ?`);
@@ -80,6 +86,7 @@ let AppBook = function () {
         sessionStorage.clear();
         return this.displayData();
     };
+    
     // them book
     this.updateForm = function() {
         let insert = `<div class="menu">
@@ -92,6 +99,7 @@ let AppBook = function () {
                 </div>`;
         document.getElementById("insert").innerHTML = insert;
     };
+    
     // sua book
     this.editForm = function(i) {
         let repair = `<div class="menu">
@@ -105,8 +113,8 @@ let AppBook = function () {
         document.documentElement.scrollTop = 0;
     };
 };
-let appbook = new AppBook();
 
+let appbook = new AppBook();
 function main(){
 appbook.loadSessionStorage();
 appbook.displayData();
